@@ -1,4 +1,3 @@
-import os
 import sys
 
 import cv2
@@ -8,12 +7,11 @@ import tensorflow as tf
 from utils import label_map_util
 from utils import visualization_utils as vis_util
 
-
 # To detect.
 MIN_SCORE_THRESH = 0.25
 
 # List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = os.path.join('data', 'mscoco_label_map.pbtxt')
+PATH_TO_LABELS = 'coco.labels'
 
 # Number of label classes
 NUM_CLASSES = 90
@@ -37,10 +35,7 @@ def main(path_to_model, src):
       tf.import_graph_def(od_graph_def, name='')
 
   # Load label map
-  label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
-  categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES, use_display_name=True)
-
-  category_index = label_map_util.create_category_index(categories)
+  category_index = label_map_util.create_category_index(PATH_TO_LABELS)
 
   cap = cv2.VideoCapture(src)
 
