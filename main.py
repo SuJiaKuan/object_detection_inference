@@ -77,6 +77,7 @@ def main(path_to_model, src):
           np.squeeze(scores),
           category_index,
           use_normalized_coordinates=True,
+          min_score_thresh=MIN_SCORE_THRESH,
           line_thickness=8)
 
         cv2.imshow('Detection', image)
