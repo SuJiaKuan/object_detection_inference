@@ -8,7 +8,7 @@ from utils import label_map_util
 from utils import visualization_utils as vis_util
 
 # To detect.
-MIN_SCORE_THRESH = 0.25
+MIN_SCORE_THRESH = 0.5
 
 # List of the strings that is used to add correct label for each box.
 PATH_TO_LABELS = 'coco.labels'
